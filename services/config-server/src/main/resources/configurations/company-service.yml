@@ -1,0 +1,20 @@
+server:
+  port: 8225
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/company
+    username: hackyeah
+    password: hackyeah
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+application:
+  config:
+    project-url: http://localhost:8222/api/v1/project
+    user-url: http://localhost:8222/api/v1/user
+    recommender-url: http://localhost:8222/api/v1/recommender
+    notification-url: http://localhost:8222/api/v1/notification

@@ -1,0 +1,27 @@
+### GET request to example server
+GET https://examples.http-client.intellij.net/get
+    ?generated-in=IntelliJ IDEA
+
+###
+POST http://localhost:8224/api/v1/user-profiles
+Content-Type: application/json
+
+{
+  "keycloakId": "ec95587c-ce77-4a7c-aa74-ea712ae7d5bc",
+  "name": "User",
+  "lastname": "Example",
+  "publicEmail": "user@example.com",
+  "phoneNumber": "+1234567890",
+  "jobTitle": "Software Engineer",
+  "motivations": "Passionate about coding and community service.",
+  "bio": "Experienced full-stack developer with a love for open-source projects.",
+  "location": "Krakow, Poland",
+  "isVolunteer": true,
+  "upVotes": 0
+}
+
+
+
+###
+
+GET http://localhost:8224/api/v1/user-profiles/1

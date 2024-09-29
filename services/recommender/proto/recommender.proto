@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+// The request message containing the user ID for recommendations.
+message RecommendationRequest {
+    string user_id = 1; // User ID for which to fetch recommendations
+    RequesterType requester_type = 2; // Type of requester (company, NGO, volunteer)
+    RequestedType requested_type = 3; // Type of request being made
+}
+
+// The response message containing a list of recommended items.
+message RecommendationResponse {
+    repeated string recommended_items = 1; // List of recommended item IDs
+}
+
+enum RequesterType {
+    REQUESTER_UNKNOWN = 0; // Default value if not set
+    REQUESTER_COMPANY = 1; // Represents a company requester
+    REQUESTER_NGO = 2;     // Represents an NGO requester
+    REQUESTER_VOLUNTEER = 3; // Represents a volunteer requester
+}
+
+// Enumeration to specify the type of request being made.
+enum RequestedType {
+    REQUESTED_UNKNOWN = 0; // Default value if not set
+    REQUESTED_COMPANY = 1; // Represents a company requested
+    REQUESTED_NGO = 2;     // Represents an NGO requested
+    REQUESTED_VOLUNTEER = 3; // Represents a volunteer requested
+}
+
+// The recommender service definition.
+service Recommender {
+    // Sends a recommendation request and returns a list of recommended items.
+    rpc GetRecommendations(RecommendationRequest) returns (RecommendationResponse);
+}
